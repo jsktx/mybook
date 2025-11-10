@@ -109,36 +109,29 @@
 
   <footer>Hecho con 💕 -Jk</footer>
 
-  <script>
-  const pastelColors = [
-    '#ffb6c1',
-    '#ff9aa2', 
-    '#a2d2ff', 
-    '#caffbf', 
-    '#d5a6ff' 
-  ];
-
-  const shapes = ['💖', '💕', '💞', '💘' '✨', '🩷'];
+<script>
+  const shapes = ['🩷', '❤️', '🧡', '💛', '💚', '💙', '💜', '🤍'];
 
   const createHeart = () => {
     const heart = document.createElement('div');
     heart.classList.add('heart');
 
     heart.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-    heart.style.color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
 
     heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heart.style.fontSize = (Math.random() * 25 + 15) + 'px';
     heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
-    heart.style.opacity = Math.random() * 0.7 + 0.5;
+    heart.style.opacity = Math.random() * 0.8 + 0.4;
 
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 10000);
   };
+
   setInterval(createHeart, 600);
 </script>
 
-
+  
 </body>
 </html>
+
