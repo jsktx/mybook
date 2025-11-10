@@ -110,33 +110,37 @@
   <footer>Hecho con 💖 por Jk</footer>
 
   <script>
-    const pastelColors = [
-      '#ffb6c1', // rosa
-      '#ff9aa2', // rojo suave
-      '#a2d2ff', // azul
-      '#caffbf', // verde
-      '#d5a6ff'  // violeta
-    ];
+  // Colores pastel 💕🌈
+  const pastelColors = [
+    '#ffb6c1',
+    '#ff9aa2', 
+    '#a2d2ff', 
+    '#caffbf', 
+    '#d5a6ff' 
+  ];
 
-    const createHeart = () => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.textContent = '💖';
+  const shapes = ['💖', '💕', '💞', '💓', '💗', '💘', '💝', '🌸', '✨', '💫', '🩷'];
 
-      const color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
-      const size = Math.random() * 20 + 10;
-      heart.style.color = color;
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.fontSize = size + 'px';
-      heart.style.animationDuration = Math.random() * 4 + 6 + 's';
+  const createHeart = () => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
 
-      document.body.appendChild(heart);
+    heart.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+    heart.style.color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
 
-      setTimeout(() => heart.remove(), 10000);
-    };
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    heart.style.opacity = Math.random() * 0.7 + 0.5;
 
-    setInterval(createHeart, 700);
-  </script>
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+  };
+  setInterval(createHeart, 600);
+</script>
+
 
 </body>
 </html>
+
