@@ -6,7 +6,7 @@
   <title>BookOfUs 💖</title>
 
   <style>
-    /* Fondo con degradado romántico */
+    /* Fondo degradado romántico */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
@@ -77,15 +77,15 @@
       z-index: 2;
     }
 
-    /* Corazoncitos flotando 💕 */
+    /* Corazoncitos flotantes */
     .heart {
       position: absolute;
       bottom: -20px;
-      color: #ff85a2;
       font-size: 20px;
       animation: floatUp linear infinite;
-      opacity: 0.8;
+      opacity: 0.9;
       z-index: 1;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
     }
 
     @keyframes floatUp {
@@ -114,24 +114,36 @@
   <footer>Hecho con 💖 por JJ y Geepee</footer>
 
   <script>
+    // Paleta de colores pastel 💕🌈
+    const pastelColors = [
+      '#ffb6c1', // rosa
+      '#ff9aa2', // rojo suave
+      '#a2d2ff', // azul
+      '#caffbf', // verde
+      '#d5a6ff'  // violeta
+    ];
+
     // Generador de corazones flotantes
     const createHeart = () => {
       const heart = document.createElement('div');
       heart.classList.add('heart');
       heart.textContent = '💖';
-      document.body.appendChild(heart);
 
-      // posición y tamaño aleatorios
+      // color y tamaño aleatorios
+      const color = pastelColors[Math.floor(Math.random() * pastelColors.length)];
       const size = Math.random() * 20 + 10;
+      heart.style.color = color;
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.fontSize = size + 'px';
       heart.style.animationDuration = Math.random() * 4 + 6 + 's';
+
+      document.body.appendChild(heart);
 
       // eliminar después de flotar
       setTimeout(() => heart.remove(), 10000);
     };
 
-    setInterval(createHeart, 800);
+    setInterval(createHeart, 700);
   </script>
 
 </body>
