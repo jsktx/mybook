@@ -16,24 +16,25 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #ffd6e8, #fff0e6, #ffe5ec);
       margin: 0;
-      padding: 20px;
-      overflow-x: hidden;
+      padding: 40px;
+      overflow: hidden;
+      position: relative;
       animation: fadeIn 1.5s ease;
     }
 
-    /* Animación de entrada suave */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Título con brillo */
+    /* Título brillante */
     h1 {
       color: #b03a63;
       font-size: 2.5em;
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       position: relative;
+      z-index: 2;
       text-shadow: 0 0 8px rgba(255, 192, 203, 0.6);
       animation: glow 3s ease-in-out infinite alternate;
     }
@@ -45,15 +46,15 @@
 
     /* Contenedor del flipbook */
     .book-container {
-      width: 100%;
-      max-width: 900px;
-      position: relative;
-      padding-top: 60%;
+      width: 90%;
+      max-width: 800px;
+      aspect-ratio: 3 / 2;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 8px 25px rgba(176, 58, 99, 0.3);
       background-color: #fff;
       animation: heartbeat 3s ease-in-out infinite;
+      z-index: 2;
     }
 
     @keyframes heartbeat {
@@ -62,21 +63,40 @@
     }
 
     iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       border: none;
     }
 
-    /* Pequeña firma abajo (opcional) */
     footer {
-      margin-top: 30px;
+      margin-top: 25px;
       color: #8b2f5e;
       font-size: 1em;
       opacity: 0.8;
       text-align: center;
+      z-index: 2;
+    }
+
+    /* Corazoncitos flotando 💕 */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: #ff85a2;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -92,6 +112,27 @@
   </div>
 
   <footer>Hecho con 💖 por JJ y Geepee</footer>
+
+  <script>
+    // Generador de corazones flotantes
+    const createHeart = () => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '💖';
+      document.body.appendChild(heart);
+
+      // posición y tamaño aleatorios
+      const size = Math.random() * 20 + 10;
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = size + 'px';
+      heart.style.animationDuration = Math.random() * 4 + 6 + 's';
+
+      // eliminar después de flotar
+      setTimeout(() => heart.remove(), 10000);
+    };
+
+    setInterval(createHeart, 800);
+  </script>
 
 </body>
 </html>
